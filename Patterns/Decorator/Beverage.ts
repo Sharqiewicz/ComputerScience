@@ -1,14 +1,8 @@
-import { IBeverage } from './types'
+import { IBeverage, Size } from './types'
 
 export abstract class Beverage implements IBeverage {
-  private _description: string = 'No description'
-
-  get description() {
-    return this._description
-  }
-  set description(value: string) {
-    this._description = value
-  }
+  description: string = 'No description'
+  size: Size
 
   abstract cost(): number
 }

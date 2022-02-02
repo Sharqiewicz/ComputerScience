@@ -1,14 +1,15 @@
 import { Beverage } from '../Beverage'
-
-const ESPRESSO_PRICE = 8
+import { Size } from '../types'
+import { EspressoPrice } from '../prices'
 
 export class Espresso extends Beverage {
-  constructor() {
+  constructor(size: Size) {
     super()
     this.description = 'Espresso'
+    this.size = size
   }
 
   cost() {
-    return ESPRESSO_PRICE
+    return EspressoPrice[this.size]
   }
 }
