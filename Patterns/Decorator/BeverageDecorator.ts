@@ -1,3 +1,5 @@
 import { Beverage } from './Beverage'
-
-export abstract class BeverageDecorator extends Beverage {}
+import { IBeverage } from './types'
+export abstract class BeverageDecorator extends Beverage {
+  beverage: IBeverage
+}
