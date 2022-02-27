@@ -13,3 +13,13 @@ class Pokemon {}
 class Witcher {}
 
 const DeletablePokemon = Deletable(Pokemon)
+
+const pokemon = new DeletablePokemon()
+pokemon.deleted
+
+class Battle {
+  opponent: InstanceType<typeof DeletablePokemon>
+}
+
+const battle = new Battle()
+battle.opponent = new DeletablePokemon()
