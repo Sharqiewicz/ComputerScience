@@ -20,8 +20,6 @@ type RRecord<T extends string | number | symbol, K> = {
 type aA = RRecord<'aa' | 'bb', boolean>
 type aAA = Record<'aa' | 'bb', boolean>
 
-
 type PPick<T, K extends keyof T> = {
-    [P in K]: T[P]
+  [TKeysInK in K]: T[TKeysInK]
 }
-

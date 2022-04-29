@@ -18,7 +18,7 @@ export class LinkedList {
   private length: number = 0
   private iterator: node | null = null
 
-  add(value: any): void {
+  add(value: any): LinkedList {
     const newNode = new LinkedNode(value, null)
     if (this.length && this.tail) {
       const lastNode = this.tail
@@ -29,6 +29,8 @@ export class LinkedList {
       this.tail = newNode
     }
     ++this.length
+
+    return this
   }
 
   print(): void {
@@ -51,4 +53,33 @@ export class LinkedList {
     }
     return false
   }
+
+  static fusion(listA: LinkedList, listB: LinkedList) {
+    let listC = new LinkedList()
+    return sort(listA.head, listB.head, listC)
+  }
 }
+
+function sort(a: LinkedNode, b: LinkedNode, list: LinkedList): LinkedList {
+  if (a === null) {
+    list.add(b.value)
+    return list
+  }
+  if (b === null) {
+    list.add(a.value)
+    return list
+  }
+  if (a.value <= b.value) {
+    list.add(a.value)
+    return sort(a.next, b, list)
+  }
+  if (b.value <= a.value) {
+    list.add(b.value)
+    return sort(a, b.next, list)
+  }
+}
+
+const list1 = new LinkedList().add(1).add(4).add(6)
+const list2 = new LinkedList().add(2).add(3).add(7)
+
+LinkedList.fusion(list1, list2)

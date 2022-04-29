@@ -1,7 +1,7 @@
 const path = require('path')
 
 module.exports = {
-  entry: './index.ts',
+  entry: './DataStructures/LinkedList.ts',
   mode: 'development',
   module: {
     rules: [
